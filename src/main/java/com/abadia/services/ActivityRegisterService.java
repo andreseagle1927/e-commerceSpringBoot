@@ -3,6 +3,7 @@ package com.abadia.services;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,9 +25,9 @@ public class ActivityRegisterService {
 	
 
 	
-	public ArrayList<ActivityRegister> getAllData() {
+	public List<ActivityRegister> getAllData() {
 		
-		return (ArrayList<ActivityRegister>) activityRegister.findAll();
+		return (List<ActivityRegister>) activityRegister.findAll();
 					
 	}
 	
@@ -37,8 +38,18 @@ public class ActivityRegisterService {
 		
 	}
 	
-	public Optional<ActivityRegister> getByid(String id) {
-		return (Optional<ActivityRegister> ) activityRegister.findById(id);
+	public List<ActivityRegister> findAllByIP(String id) {
+		List<ActivityRegister> actiRegiRespuesta = new ArrayList<>();
+		List<ActivityRegister> registers = (List<ActivityRegister>) activityRegister.findAll();
+		
+		for (int i= 0; i < registers.size(); i++) {
+			if (registers.get(i).getId() == id) {
+				actiRegiRespuesta.add(registers.get(i));
+			}
+		}
+		
+		return actiRegiRespuesta;
+		
 	}
 	
 }
