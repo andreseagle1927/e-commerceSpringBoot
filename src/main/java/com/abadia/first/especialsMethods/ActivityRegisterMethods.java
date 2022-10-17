@@ -4,13 +4,15 @@ import com.abadia.first.entity.ActivityRegister;
 import com.abadia.first.especialsMethods.externalsClasses.GetDate;
 import com.abadia.first.services.ActivityRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ActivityRegisterMethods {
+	
     @Autowired
     ActivityRegisterService activityRegisterService;
 
-    @Autowired
-    ActivityRegister activityRegister;
+   
 
     public void recordRegister(String nameProduct,String ip) {
 
@@ -18,6 +20,8 @@ public class ActivityRegisterMethods {
 
 
         String dateString = date.getDateString();
+        
+        ActivityRegister activityRegister = new ActivityRegister();
 
         activityRegister.setProductName(nameProduct);
         activityRegister.setIp(ip);

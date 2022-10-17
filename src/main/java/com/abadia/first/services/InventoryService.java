@@ -4,11 +4,13 @@ import com.abadia.first.entity.Inventory;
 import com.abadia.first.entity.Product;
 import com.abadia.first.repository.IInvetoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class InventoryService {
 
     @Autowired
@@ -17,10 +19,10 @@ public class InventoryService {
 
 
     //THIS IF FOR TAKE ONE PRODUCT FROM THE STOCK
-    public Product findProductByName(String nameProduct, String inventoryId) {
+    public Product findProductByName(String nameProduct, Integer idInvetory) {
         List<Product> products = new ArrayList<>();
         Product theProduct = null;
-        Optional<Inventory> invetory = invetoryRepository.findById(inventoryId);
+        Optional<Inventory> invetory = invetoryRepository.findById(idInvetory);
 
         if (invetory.isPresent()) {
             products = invetory.get().getProductsList();
@@ -37,7 +39,7 @@ public class InventoryService {
 
 
     // THIS FUNCTION IS FOR HELP US TO KNOW HOW MANY PRODUCTS OF "x" NAME THERE ARE IN STOCK
-    public int countByName(String nameProduct, String inventoryId) {
+    public int countByName(String nameProduct, Integer inventoryId) {
         List<Product> products = new ArrayList<>();
         List<Product> theProductsFound = new ArrayList<>();
         Optional<Inventory> invetory = invetoryRepository.findById(inventoryId);
@@ -57,7 +59,7 @@ public class InventoryService {
     }
 
     // RETURN AS LIST ALL THE PRODUCTS FROM THE INVENTORY, JUST FOR ADMINISTRATIVE USE
-    public List<Product> getInvetory(String inventoryId){
+    public List<Product> getInvetory(Integer inventoryId){
         List<Product> products = new ArrayList<>();
         Optional<Inventory> invetory = invetoryRepository.findById(inventoryId);
 
@@ -68,6 +70,7 @@ public class InventoryService {
         return products;
     }
 
+    
     public void save(Optional<Inventory> inventory){
 
         if (inventory.isPresent()){
@@ -76,8 +79,8 @@ public class InventoryService {
 
     }
     
-    public Optional<Inventory> findInventoryByid(String ip){
-        return invetoryRepository.findById(ip);
+    public Optional<Inventory> findInventoryByid(Integer id){
+        return invetoryRepository.findById(id);
     }
 }
 

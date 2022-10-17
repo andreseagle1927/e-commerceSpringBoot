@@ -15,12 +15,12 @@ public class InventoryController {
     @Autowired
     InventoryService inventoryService;
 
-    String defaultInventoryID = "001";
+    Integer defaultInventoryID = 1;
 
     @RequestMapping(value="/getProductStock", method = RequestMethod.GET)
     public ResponseEntity<Integer>getProductStock(@RequestParam(value = "name") String name){
 
-        int productsOnStock = inventoryService.countByName(name, defaultInventoryID);
+        Integer productsOnStock = inventoryService.countByName(name, defaultInventoryID);
         return new ResponseEntity(productsOnStock, HttpStatus.OK);
     }
 

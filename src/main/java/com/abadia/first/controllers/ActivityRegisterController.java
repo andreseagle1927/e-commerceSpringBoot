@@ -14,15 +14,19 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class ActivityRegisterController {
+	
     @Autowired
-    ActivityRegisterMethods activityRegisterMethods;
+	ActivityRegisterMethods activityRegisterMethods;
+    
 
     @RequestMapping(value="/recordRegister", method = RequestMethod.GET)
     public ResponseEntity<String> recordRegister(@RequestParam(value = "name") String nameProduct, HttpServletRequest request){
         String ip = HttpUtils.getRequestIP(request);
+        
+       
         activityRegisterMethods.recordRegister(nameProduct,ip);
 
-        return new ResponseEntity<>(ip, HttpStatus.OK);
+        return new ResponseEntity(ip, HttpStatus.OK);
     }
 
 

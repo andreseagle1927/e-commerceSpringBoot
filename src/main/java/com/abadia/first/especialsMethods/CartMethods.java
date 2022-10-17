@@ -10,16 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class CartMethods {
 
+	@Autowired
     CartService cartService;
 
+	@Autowired
     InventoryService inventoryService;
 
-    String idInvetory = "001";
+    Integer idInvetory = 1;
 
     Cart cart;
 
+    
     Optional<Inventory> inventory;
 
 
@@ -53,7 +60,7 @@ public class CartMethods {
 
         if (this.verificatorStock(productName)){
             Product product = inventoryService.findProductByName(productName,idInvetory);
-            List<Product> products = inventoryService.getInvetory(ip);
+            List<Product> products = inventoryService.getInvetory(idInvetory);
             products.remove(product);
 
             inventory = inventoryService.findInventoryByid(idInvetory);

@@ -19,7 +19,7 @@ public class ActivityRegister {
 	private String ip;
 	
 	@JsonProperty()
-	@Column(name = "dataDate")
+	@Column(name = "fecha")
 	private String date;
 	
 	@JsonProperty()
