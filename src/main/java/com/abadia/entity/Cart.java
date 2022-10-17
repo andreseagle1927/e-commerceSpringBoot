@@ -2,34 +2,46 @@ package com.abadia.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table
+@Table(name = "cart")
 public class Cart {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty()
-	@Column()
-	private String id; // id = IP
-	
+	@Column(name = "id")
+	private Integer id; // id = IP
+
+
+	@JsonProperty()
+	@Column(name = "ip")
+	private String ip;
+
+
+
 	@OneToMany
 	@JsonProperty()
-	@Column()
+	@Column(name = "product_id")
 	private List<Product> ProductsList;
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
 	}
 
 	public List<Product> getProductsList() {

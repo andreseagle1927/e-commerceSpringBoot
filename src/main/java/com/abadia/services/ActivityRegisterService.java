@@ -28,22 +28,26 @@ public class ActivityRegisterService {
 	public List<ActivityRegister> getAllData() {
 		
 		return (List<ActivityRegister>) activityRegister.findAll();
+
+
+
+
 					
 	}
 	
 
 	
-	public void save(ActivityRegister activityModel) {
-		activityRegister.save(activityModel);
+	public ActivityRegister save(ActivityRegister activityModel) {
+		return activityRegister.save(activityModel);
 		
 	}
 	
-	public List<ActivityRegister> findAllByIP(String id) {
+	public List<ActivityRegister> findAllByIP(String ip) {
 		List<ActivityRegister> actiRegiRespuesta = new ArrayList<>();
 		List<ActivityRegister> registers = (List<ActivityRegister>) activityRegister.findAll();
 		
 		for (int i= 0; i < registers.size(); i++) {
-			if (registers.get(i).getId() == id) {
+			if (registers.get(i).getIp() == ip) {
 				actiRegiRespuesta.add(registers.get(i));
 			}
 		}
@@ -51,5 +55,17 @@ public class ActivityRegisterService {
 		return actiRegiRespuesta;
 		
 	}
-	
+
+	public int countByIp(String ip){
+
+		List<ActivityRegister> actiRegiRespuesta = new ArrayList<>();
+		List<ActivityRegister> registers = (List<ActivityRegister>) activityRegister.findAll();
+
+		for (int i= 0; i < registers.size(); i++) {
+			if (registers.get(i).getIp() == ip) {
+				actiRegiRespuesta.add(registers.get(i));
+			}
+		}
+		return actiRegiRespuesta.size();
+	}
 }

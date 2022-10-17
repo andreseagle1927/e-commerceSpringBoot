@@ -2,35 +2,44 @@ package com.abadia.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table
+@Table(name = "inventory")
 public class Inventory {
 
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty()
-	@Column()
-	private String name;
-	
+	@Column(name = "id")
+	private Integer id;
+
+	@JsonProperty()
+	@Column(name = "inventoryname")
+	private String inventoryName;
+
 	@OneToMany
 	@JsonProperty()
-	@Column()
+	@Column(name = "product_id")
 	private List<Product> ProductsList;
 
-	public String getName() {
-		return name;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getInventoryName() {
+		return inventoryName;
+	}
+
+	public void setInventoryName(String inventoryName) {
+		this.inventoryName = inventoryName;
 	}
 
 	public List<Product> getProductsList() {

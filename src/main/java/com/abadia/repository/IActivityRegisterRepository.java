@@ -4,9 +4,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.abadia.entity.ActivityRegister;
 
-public interface IActivityRegisterRepository extends CrudRepository<ActivityRegister, String> {
-	
-	
+import java.util.List;
 
-		
+public interface IActivityRegisterRepository extends CrudRepository<ActivityRegister, String> {
+
 }

@@ -1,35 +1,44 @@
 package com.abadia.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table
+@Table(name = "activityregister")
 public class ActivityRegister {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty()
-	@Column()
-	private String id;
+	@Column(name = "id")
+	private Integer id;
+
+	@JsonProperty()
+	@Column(name = "ip")
+	private String ip;
 	
 	@JsonProperty()
-	@Column()
+	@Column(name = "dataDate")
 	private String date;
 	
 	@JsonProperty()
-	@Column()
+	@Column(name = "productName")
 	private String productName;
 
-	
-	public String getId() {
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

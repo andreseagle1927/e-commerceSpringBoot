@@ -1,40 +1,49 @@
 package com.abadia.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table
+@Table(name = "product")
 public class Product {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty()
-	@Column()
-	private Long id;
+	@Column(name = "id")
+	private Integer id;
 	
 	@JsonProperty()
-	@Column()
+	@Column(name = "name")
 	private String name;
 	
 	@JsonProperty()
-	@Column()
+	@Column(name = "type")
 	private String type;
-	
-	@JsonProperty()
-	@Column()
-	private String price;
 
-	public Long getId() {
+	@JsonProperty()
+	@Column(name = "price")
+	private float price;
+
+
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
 
 	public String getName() {
 		return name;
@@ -52,14 +61,5 @@ public class Product {
 		this.type = type;
 	}
 
-	public String getPrice() {
-		return price;
-	}
 
-	public void setPrice(String price) {
-		this.price = price;
-	}
-	
-	
-	
 }
