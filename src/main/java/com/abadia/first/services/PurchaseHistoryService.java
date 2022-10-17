@@ -1,16 +1,14 @@
-package com.abadia.services;
+package com.abadia.first.services;
 
 
 
 
-import com.abadia.entity.ActivityRegister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.abadia.entity.PurchaseHistory;
-import com.abadia.repository.IPurchaseHistoryRepository;
+import com.abadia.first.entity.PurchaseHistory;
+import com.abadia.first.repository.IPurchaseHistoryRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

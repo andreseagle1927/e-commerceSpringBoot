@@ -1,10 +1,10 @@
 package com.abadia.services;
 
-import com.abadia.entity.ActivityRegister;
-import com.abadia.entity.Cart;
-import com.abadia.entity.Product;
-import com.abadia.repository.ICartRepository;
-import com.abadia.repository.IProductRepository;
+import com.abadia.first.entity.Cart;
+import com.abadia.first.entity.Product;
+import com.abadia.first.repository.ICartRepository;
+import com.abadia.first.repository.IProductRepository;
+import com.abadia.first.services.CartService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -12,7 +12,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 

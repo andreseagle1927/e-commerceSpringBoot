@@ -1,7 +1,8 @@
 package com.abadia.services;
 
-import com.abadia.entity.PurchaseHistory;
-import com.abadia.repository.IPurchaseHistoryRepository;
+import com.abadia.first.entity.PurchaseHistory;
+import com.abadia.first.repository.IPurchaseHistoryRepository;
+import com.abadia.first.services.PurchaseHistoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

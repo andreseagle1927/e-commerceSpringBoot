@@ -1,4 +1,4 @@
-package com.abadia.entity;
+package com.abadia.first.entity;
 
 import java.util.List;
 
@@ -7,21 +7,19 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "cart")
-public class Cart {
+@Table(name = "inventory")
+public class Inventory {
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty()
 	@Column(name = "id")
-	private Integer id; // id = IP
-
+	private Integer id;
 
 	@JsonProperty()
-	@Column(name = "ip")
-	private String ip;
-
-
+	@Column(name = "inventoryname")
+	private String inventoryName;
 
 	@OneToMany
 	@JsonProperty()
@@ -36,12 +34,12 @@ public class Cart {
 		this.id = id;
 	}
 
-	public String getIp() {
-		return ip;
+	public String getInventoryName() {
+		return inventoryName;
 	}
 
-	public void setIp(String ip) {
-		this.ip = ip;
+	public void setInventoryName(String inventoryName) {
+		this.inventoryName = inventoryName;
 	}
 
 	public List<Product> getProductsList() {
@@ -51,8 +49,6 @@ public class Cart {
 	public void setProductsList(List<Product> productsList) {
 		ProductsList = productsList;
 	}
-	
-	
 	
 	
 }

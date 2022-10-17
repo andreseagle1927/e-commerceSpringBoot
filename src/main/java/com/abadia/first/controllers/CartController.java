@@ -1,7 +1,7 @@
-package com.abadia.controllers;
+package com.abadia.first.controllers;
 
-import com.abadia.especialsMethods.CartMethods;
-import com.abadia.especialsMethods.externalsClasses.HttpUtils;
+import com.abadia.first.especialsMethods.CartMethods;
+import com.abadia.first.especialsMethods.externalsClasses.HttpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

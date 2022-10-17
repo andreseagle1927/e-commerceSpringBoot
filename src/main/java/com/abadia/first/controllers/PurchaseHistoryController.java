@@ -1,6 +1,6 @@
-package com.abadia.controllers;
+package com.abadia.first.controllers;
 
-import com.abadia.especialsMethods.PurchaseHistoryMethods;
+import com.abadia.first.especialsMethods.PurchaseHistoryMethods;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PurchaseHistoryController {

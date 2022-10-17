@@ -1,7 +1,8 @@
 package com.abadia.services;
 
-import com.abadia.entity.ActivityRegister;
-import com.abadia.repository.IActivityRegisterRepository;
+import com.abadia.first.entity.ActivityRegister;
+import com.abadia.first.repository.IActivityRegisterRepository;
+import com.abadia.first.services.ActivityRegisterService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

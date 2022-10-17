@@ -1,10 +1,10 @@
-package com.abadia.especialsMethods;
+package com.abadia.first.especialsMethods;
 
-import com.abadia.entity.Cart;
-import com.abadia.entity.Inventory;
-import com.abadia.entity.Product;
-import com.abadia.services.CartService;
-import com.abadia.services.InventoryService;
+import com.abadia.first.entity.Cart;
+import com.abadia.first.entity.Inventory;
+import com.abadia.first.entity.Product;
+import com.abadia.first.services.CartService;
+import com.abadia.first.services.InventoryService;
 
 import java.util.ArrayList;
 import java.util.List;

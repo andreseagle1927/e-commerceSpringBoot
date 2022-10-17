@@ -1,9 +1,10 @@
 package com.abadia.services;
 
-import com.abadia.entity.Inventory;
-import com.abadia.entity.Product;
-import com.abadia.repository.IInvetoryRepository;
-import com.abadia.repository.IProductRepository;
+import com.abadia.first.entity.Inventory;
+import com.abadia.first.entity.Product;
+import com.abadia.first.repository.IInvetoryRepository;
+import com.abadia.first.repository.IProductRepository;
+import com.abadia.first.services.InventoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

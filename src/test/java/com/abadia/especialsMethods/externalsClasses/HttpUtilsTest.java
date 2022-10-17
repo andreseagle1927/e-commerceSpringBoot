@@ -1,10 +1,9 @@
 package com.abadia.especialsMethods.externalsClasses;
 
+import com.abadia.first.especialsMethods.externalsClasses.HttpUtils;
 import org.junit.jupiter.api.Test;
 
 import javax.servlet.http.HttpServletRequest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class HttpUtilsTest {
 

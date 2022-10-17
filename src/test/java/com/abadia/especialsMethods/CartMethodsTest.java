@@ -1,6 +1,7 @@
 package com.abadia.especialsMethods;
 
-import com.abadia.services.InventoryService;
+import com.abadia.first.especialsMethods.CartMethods;
+import com.abadia.first.services.InventoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

@@ -1,18 +1,15 @@
-package com.abadia.services;
+package com.abadia.first.services;
 
 
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
-import org.aspectj.weaver.Iterators;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.abadia.entity.ActivityRegister;
-import com.abadia.repository.IActivityRegisterRepository;
+import com.abadia.first.entity.ActivityRegister;
+import com.abadia.first.repository.IActivityRegisterRepository;
 
 
 

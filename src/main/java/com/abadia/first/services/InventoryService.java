@@ -1,8 +1,8 @@
-package com.abadia.services;
+package com.abadia.first.services;
 
-import com.abadia.entity.Inventory;
-import com.abadia.entity.Product;
-import com.abadia.repository.IInvetoryRepository;
+import com.abadia.first.entity.Inventory;
+import com.abadia.first.entity.Product;
+import com.abadia.first.repository.IInvetoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;

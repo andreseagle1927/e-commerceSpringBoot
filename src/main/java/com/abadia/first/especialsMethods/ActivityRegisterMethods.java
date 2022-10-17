@@ -1,14 +1,9 @@
-package com.abadia.especialsMethods;
+package com.abadia.first.especialsMethods;
 
-import com.abadia.entity.ActivityRegister;
-import com.abadia.especialsMethods.externalsClasses.GetDate;
-import com.abadia.especialsMethods.externalsClasses.HttpUtils;
-import com.abadia.services.ActivityRegisterService;
+import com.abadia.first.entity.ActivityRegister;
+import com.abadia.first.especialsMethods.externalsClasses.GetDate;
+import com.abadia.first.services.ActivityRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.servlet.http.HttpServletRequest;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ActivityRegisterMethods {
     @Autowired

@@ -1,4 +1,4 @@
-package com.abadia.entity;
+package com.abadia.first.entity;
 
 import javax.persistence.*;
 

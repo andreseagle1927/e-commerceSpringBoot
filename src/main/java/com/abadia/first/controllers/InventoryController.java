@@ -1,8 +1,7 @@
-package com.abadia.controllers;
+package com.abadia.first.controllers;
 
-import com.abadia.entity.Product;
-import com.abadia.services.InventoryService;
-import org.apache.coyote.Response;
+import com.abadia.first.entity.Product;
+import com.abadia.first.services.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

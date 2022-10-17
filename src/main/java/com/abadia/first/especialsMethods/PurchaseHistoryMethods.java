@@ -1,10 +1,9 @@
-package com.abadia.especialsMethods;
+package com.abadia.first.especialsMethods;
 
-import com.abadia.entity.PurchaseHistory;
-import com.abadia.services.InventoryService;
-import com.abadia.services.PurchaseHistoryService;
+import com.abadia.first.entity.PurchaseHistory;
+import com.abadia.first.services.InventoryService;
+import com.abadia.first.services.PurchaseHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
 public class PurchaseHistoryMethods {

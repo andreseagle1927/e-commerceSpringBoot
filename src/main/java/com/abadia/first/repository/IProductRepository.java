@@ -1,8 +1,8 @@
-package com.abadia.repository;
+package com.abadia.first.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.abadia.entity.Product;
+import com.abadia.first.entity.Product;
 
 public interface IProductRepository extends CrudRepository<Product, String> {
 	
