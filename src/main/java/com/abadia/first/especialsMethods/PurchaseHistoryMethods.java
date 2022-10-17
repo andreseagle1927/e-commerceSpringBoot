@@ -5,7 +5,9 @@ import com.abadia.first.services.InventoryService;
 import com.abadia.first.services.PurchaseHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PurchaseHistoryMethods {
     CartMethods cart;
     InventoryService inventoryService;
