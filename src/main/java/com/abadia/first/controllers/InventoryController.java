@@ -18,16 +18,16 @@ public class InventoryController {
     Integer defaultInventoryID = 1;
 
     @RequestMapping(value="/getProductStock", method = RequestMethod.GET)
-    public ResponseEntity<Integer>getProductStock(@RequestParam(value = "name") String name){
+    public ResponseEntity<Integer>getProductStock(@RequestParam(value = "id") Integer idBaseProduct){
 
-        Integer productsOnStock = inventoryService.countByName(name, defaultInventoryID);
+        int productsOnStock = inventoryService.countByIdBase(idBaseProduct);
         return new ResponseEntity(productsOnStock, HttpStatus.OK);
     }
 
     @RequestMapping(value="/getProductInfo", method = RequestMethod.GET)
-    public ResponseEntity<Product>getProductInfo(@RequestParam(value = "name") String name){
+    public ResponseEntity<Integer>getProductInfo(@RequestParam(value = "id") Integer idBaseProduct){
 
-        Product product= inventoryService.findProductByName(name, defaultInventoryID);
+        Product product= inventoryService.findProductByIdBase(idBaseProduct);
         return new ResponseEntity(product, HttpStatus.OK);
     }
 }

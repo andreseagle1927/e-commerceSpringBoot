@@ -4,14 +4,16 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 @Entity
-@Table(name = "product")
+@Table(name = "product_exist")
 public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty()
-	@Column(name = "id")
+	@Column(name = "id_product")
 	private Integer id;
 	
 	@JsonProperty()
@@ -26,7 +28,17 @@ public class Product {
 	@Column(name = "price")
 	private float price;
 
+	// bring all of this product in the stock
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Inventory> stock;
 
+	public List<Inventory> getStock() {
+		return stock;
+	}
+
+	public void setStock(List<Inventory> stock) {
+		this.stock = stock;
+	}
 
 	public Integer getId() {
 		return id;
@@ -60,6 +72,8 @@ public class Product {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+
 
 
 }

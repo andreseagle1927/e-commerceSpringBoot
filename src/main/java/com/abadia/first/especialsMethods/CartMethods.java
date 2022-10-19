@@ -31,7 +31,7 @@ public class CartMethods {
 
 
 
-    public boolean addProductToCart(String name, String ip){
+    /*public boolean addProductToCart(String name, String ip){
 
         if (this.verificatorStock(name)){
             Product product = inventoryService.findProductByName(name,idInvetory);
@@ -42,7 +42,7 @@ public class CartMethods {
         else {
             return false;
         }
-    }
+    }*/
 
     public float getPriceOfCart(String ip){
         Cart thecart = cartService.findId(ip);
@@ -55,6 +55,7 @@ public class CartMethods {
         return price;
     }
 
+    /*
     public void buyOne(String productName, String email, String ip){
 
 
@@ -78,7 +79,7 @@ public class CartMethods {
             return true;
         }
         return false;
-    }
+    } */
 
     public List<Product> getAllProductsOnCart(String ip){
         inventory = inventoryService.findInventoryByid(idInvetory);
@@ -92,6 +93,7 @@ public class CartMethods {
         return products;
     }
 
+    /*
     public void RemoveProductsToBuy(String ip){
         inventory = inventoryService.findInventoryByid(idInvetory);
         List<Product> cartProducts = cartService.getCart(ip);
@@ -107,7 +109,7 @@ public class CartMethods {
             inventoryService.save(inventory);
 
         }
-    }
+    } */
 
     public String getNameProductsString(String ip){
         cart = cartService.findId(ip);
@@ -122,5 +124,6 @@ public class CartMethods {
         return "hola";
 
     }
+
 
 }

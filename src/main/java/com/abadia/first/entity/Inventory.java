@@ -14,17 +14,16 @@ public class Inventory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty()
-	@Column(name = "id")
+	@Column(name = "id_in_stock")
 	private Integer id;
 
-	@JsonProperty()
-	@Column(name = "inventoryname")
-	private String inventoryName;
+	@ManyToOne()
+	@JoinColumn(name = "id_product")
+	private Product product;
 
-	@OneToMany
-	@JsonProperty()
-	@Column(name = "product_id")
-	private List<Product> ProductsList;
+	@ManyToOne()
+	@JoinColumn(name = "id_cart")
+	private Cart cart;
 
 	public Integer getId() {
 		return id;
@@ -34,21 +33,19 @@ public class Inventory {
 		this.id = id;
 	}
 
-	public String getInventoryName() {
-		return inventoryName;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setInventoryName(String inventoryName) {
-		this.inventoryName = inventoryName;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
-	public List<Product> getProductsList() {
-		return ProductsList;
+	public Cart getCart() {
+		return cart;
 	}
 
-	public void setProductsList(List<Product> productsList) {
-		ProductsList = productsList;
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
-	
-	
 }

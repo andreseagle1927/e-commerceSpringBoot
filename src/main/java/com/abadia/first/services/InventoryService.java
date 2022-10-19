@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,69 +20,65 @@ public class InventoryService {
 
 
     //THIS IF FOR TAKE ONE PRODUCT FROM THE STOCK
-    public Product findProductByName(String nameProduct, Integer idInvetory) {
-        List<Product> products = new ArrayList<>();
+    public Product findProductByIdBase(Integer idProductBase) {
+
         Product theProduct = null;
-        Optional<Inventory> invetory = invetoryRepository.findById(idInvetory);
+        Iterable<Inventory> invetory = invetoryRepository.findAll();
 
-        if (invetory.isPresent()) {
-            products = invetory.get().getProductsList();
-            for (int i = 0; i < products.size(); i++) {
 
-                if (products.get(i).getName() == nameProduct) {
-                    theProduct = products.get(i);
 
-                }
+        Iterator<Inventory> iterator = invetory.iterator();
+
+        while(iterator.hasNext()){
+            if(iterator.next().getProduct().getId() == idProductBase){
+                theProduct = iterator.next().getProduct();
             }
         }
+
         return theProduct;
     }
 
 
     // THIS FUNCTION IS FOR HELP US TO KNOW HOW MANY PRODUCTS OF "x" NAME THERE ARE IN STOCK
-    public int countByName(String nameProduct, Integer inventoryId) {
-        List<Product> products = new ArrayList<>();
-        List<Product> theProductsFound = new ArrayList<>();
-        Optional<Inventory> invetory = invetoryRepository.findById(inventoryId);
+    public int countByIdBase(Integer idProductBase) {
+        int quantity = 0;
+        Iterable<Inventory> invetory = invetoryRepository.findAll();
 
 
-        if (invetory.isPresent()) {
-            products = invetory.get().getProductsList();
 
-            for (int i = 0; i < products.size(); i++) {
+        Iterator<Inventory> iterator = invetory.iterator();
 
-                if (products.get(i).getName() == nameProduct) {
-                    theProductsFound.add(products.get(i));
-                }
+        while(iterator.hasNext()){
+            Product theProduct = iterator.next().getProduct();
+            if(theProduct.getId() == idProductBase){
+                theProduct = iterator.next().getProduct();
+                quantity = theProduct.getStock().size();
             }
         }
-        return theProductsFound.size();
+
+        return quantity;
+
+
     }
 
     // RETURN AS LIST ALL THE PRODUCTS FROM THE INVENTORY, JUST FOR ADMINISTRATIVE USE
-    public List<Product> getInvetory(Integer inventoryId){
-        List<Product> products = new ArrayList<>();
-        Optional<Inventory> invetory = invetoryRepository.findById(inventoryId);
+    public List<Inventory> getInvetory(){
+        List<Inventory> inventoryList = new ArrayList<>();
 
-        if (invetory.isPresent()){
-            products = invetory.get().getProductsList();
+
+        Iterable<Inventory> invetory = invetoryRepository.findAll();
+
+        Iterator<Inventory> iterator = invetory.iterator();
+
+        while(iterator.hasNext()){
+            inventoryList.add(iterator.next());
         }
 
-        return products;
+
+        return inventoryList;
     }
 
-    
-    public void save(Optional<Inventory> inventory){
 
-        if (inventory.isPresent()){
-            invetoryRepository.save(inventory.get());
-        }
-
-    }
-    
-    public Optional<Inventory> findInventoryByid(Integer id){
-        return invetoryRepository.findById(id);
-    }
 }
 
 
