@@ -23,34 +23,6 @@ public class Cart {
 
 
 
-	@OneToMany
-	@JsonProperty()
-	@Column(name = "product_id")
-	private List<Product> ProductsList;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getIp() {
-		return ip;
-	}
-
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
-
-	public List<Product> getProductsList() {
-		return ProductsList;
-	}
-
-	public void setProductsList(List<Product> productsList) {
-		ProductsList = productsList;
-	}
 	
 	
 	

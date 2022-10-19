@@ -21,9 +21,7 @@ public class Inventory {
 	@JoinColumn(name = "id_product")
 	private Product product;
 
-	@ManyToOne()
-	@JoinColumn(name = "id_cart")
-	private Cart cart;
+	
 
 	public Integer getId() {
 		return id;
@@ -41,11 +39,5 @@ public class Inventory {
 		this.product = product;
 	}
 
-	public Cart getCart() {
-		return cart;
-	}
-
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
+	
 }

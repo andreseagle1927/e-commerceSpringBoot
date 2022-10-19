@@ -20,9 +20,12 @@ public class InventoryService {
 
 
     //THIS IF FOR TAKE ONE PRODUCT FROM THE STOCK
-    public Product findProductByIdBase(Integer idProductBase) {
+    public Inventory findProductByIdBase(Integer idProductBase) {
 
+    	Inventory Inventory = null;
         Product theProduct = null;
+        List<Product> productList = new ArrayList<Product>();
+        List<Inventory> theinventory = new ArrayList<Inventory>();
         Iterable<Inventory> invetory = invetoryRepository.findAll();
 
 
@@ -30,33 +33,51 @@ public class InventoryService {
         Iterator<Inventory> iterator = invetory.iterator();
 
         while(iterator.hasNext()){
-            if(iterator.next().getProduct().getId() == idProductBase){
-                theProduct = iterator.next().getProduct();
-            }
+        	theinventory.add(iterator.next());
+           
+        }
+        
+        for(int i = 0; i < theinventory.size(); i++ ) {
+        	if (theinventory.get(i).getProduct().getId() == idProductBase) {
+        		Inventory = theinventory.get(i);
+        		
+			}
         }
 
-        return theProduct;
+        return Inventory;
     }
 
 
     // THIS FUNCTION IS FOR HELP US TO KNOW HOW MANY PRODUCTS OF "x" NAME THERE ARE IN STOCK
     public int countByIdBase(Integer idProductBase) {
-        int quantity = 0;
+        
+    	int contador = 0;
+    	
+        
+        List<Integer> productList = new ArrayList<Integer>();
         Iterable<Inventory> invetory = invetoryRepository.findAll();
+       
 
 
 
         Iterator<Inventory> iterator = invetory.iterator();
+        
+        
 
         while(iterator.hasNext()){
-            Product theProduct = iterator.next().getProduct();
-            if(theProduct.getId() == idProductBase){
-                theProduct = iterator.next().getProduct();
-                quantity = theProduct.getStock().size();
-            }
+        	productList.add(iterator.next().getProduct().getId());
+        	
         }
+        
+        for(int i = 0; i < productList.size(); i++ ) {
+        	if (productList.get(i) == idProductBase) {
+        		contador++;
+			}
+        }
+        
+        
 
-        return quantity;
+        return contador;
 
 
     }

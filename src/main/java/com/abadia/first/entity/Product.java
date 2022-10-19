@@ -29,16 +29,7 @@ public class Product {
 	private float price;
 
 	// bring all of this product in the stock
-	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Inventory> stock;
-
-	public List<Inventory> getStock() {
-		return stock;
-	}
-
-	public void setStock(List<Inventory> stock) {
-		this.stock = stock;
-	}
+	
 
 	public Integer getId() {
 		return id;

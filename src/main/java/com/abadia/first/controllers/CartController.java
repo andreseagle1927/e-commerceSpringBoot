@@ -15,11 +15,11 @@ public class CartController {
     @Autowired
     CartMethods cartMethods;
 
-    @RequestMapping(value="/addProduct", method = RequestMethod.GET)
+    /*@RequestMapping(value="/addProduct", method = RequestMethod.GET)
     public void addProduct(@RequestParam(value = "name") String nameProduct, HttpServletRequest request){
         String ip = HttpUtils.getRequestIP(request);
         cartMethods.addProductToCart("amigo", "hola");
-    }
+    }*/
 
     public void payCart(){}
 
