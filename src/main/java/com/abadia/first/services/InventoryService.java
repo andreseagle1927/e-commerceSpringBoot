@@ -38,7 +38,7 @@ public class InventoryService {
         }
         
         for(int i = 0; i < theinventory.size(); i++ ) {
-        	if (theinventory.get(i).getProduct().getId() == idProductBase) {
+        	if (theinventory.get(i).getProduct().getId() == idProductBase && theinventory.get(i).getCart().getId() == 0) {
         		Inventory = theinventory.get(i);
         		
 			}
@@ -98,6 +98,14 @@ public class InventoryService {
 
         return inventoryList;
     }
+    
+    public void deleteInventory(Inventory inventory) {
+		invetoryRepository.delete(inventory);
+	}
+    
+    public void save(Inventory inventory) {
+		invetoryRepository.save(inventory);
+	}
 
 
 }

@@ -11,20 +11,53 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Cart {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty()
-	@Column(name = "id")
+	@Column(name = "id_cart")
 	private Integer id; // id = IP
 
 
 	@JsonProperty()
 	@Column(name = "ip")
 	private String ip;
+	
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = false)
+	private List<Inventory> productos;
+	
+	public void addToCart(Inventory inventory) {
+		productos.add(inventory);
+	}
+
+
 
 
 
 	
-	
+
+
+	public void setProductos(List<Inventory> productos) {
+		this.productos = productos;
+	}
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getIp() {
+		return ip;
+	}
+
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
 	
 	
 }

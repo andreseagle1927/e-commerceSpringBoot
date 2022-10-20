@@ -23,7 +23,7 @@ public class ActivityRegister {
 	private String date;
 	
 	@JsonProperty()
-	@Column(name = "productName")
+	@Column(name = "product_name")
 	private String productName;
 
 	public String getIp() {

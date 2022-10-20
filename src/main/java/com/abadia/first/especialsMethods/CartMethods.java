@@ -3,6 +3,7 @@ package com.abadia.first.especialsMethods;
 import com.abadia.first.entity.Cart;
 import com.abadia.first.entity.Inventory;
 import com.abadia.first.entity.Product;
+import com.abadia.first.repository.ICartRepository;
 import com.abadia.first.services.CartService;
 import com.abadia.first.services.InventoryService;
 
@@ -24,27 +25,35 @@ public class CartMethods {
 
     Integer idInvetory = 1;
 
-    Cart cart;
+    
 
     
     Optional<Inventory> inventory;
+    
+    ICartRepository cartRepository;
 
 
 
-    /*public boolean addProductToCart(String name, String ip){
+    public Cart addProductToCart(Inventory product, String ip){
+    	Cart cart = null;
+    	
+    	if(cartService.checkIfExist(ip)) {
+    		cart = cartService.getCartByIp(ip);
+  
+    	}else {
+			cart = cartService.createCart(ip);
+			cartService.save(cart);
+		
+			
+		}
+    	
+    	return cart;
+    		
+    	
+    	
+    }
 
-        if (this.verificatorStock(name)){
-            Product product = inventoryService.findProductByName(name,idInvetory);
-            cart.setIp(ip);
-            cart.getProductsList().add(product);
-            return true;
-        }
-        else {
-            return false;
-        }
-    }*/
-
-    public float getPriceOfCart(String ip){
+    /*public float getPriceOfCart(String ip){
         Cart thecart = cartService.findId(ip);
         List<Product> listProducts = thecart.getProductsList();
         float price = 0;
@@ -53,7 +62,7 @@ public class CartMethods {
                 price = price + listProducts.get(i).getPrice();
         }
         return price;
-    }
+    }*/
 
     /*
     public void buyOne(String productName, String email, String ip){
@@ -81,6 +90,7 @@ public class CartMethods {
         return false;
     } */
 
+    /*
     public List<Product> getAllProductsOnCart(String ip){
         inventory = inventoryService.findInventoryByid(idInvetory);
         cart = cartService.findId(ip);
@@ -91,7 +101,7 @@ public class CartMethods {
         }
 
         return products;
-    }
+    }*/
 
     /*
     public void RemoveProductsToBuy(String ip){
@@ -111,7 +121,7 @@ public class CartMethods {
         }
     } */
 
-    public String getNameProductsString(String ip){
+    /*public String getNameProductsString(String ip){
         cart = cartService.findId(ip);
         List<Product> products = new ArrayList<>();
 
@@ -123,7 +133,7 @@ public class CartMethods {
 
         return "hola";
 
-    }
+    }*/
 
 
 }

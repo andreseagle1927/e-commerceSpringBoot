@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.abadia.first.entity.Cart;
 
-public interface ICartRepository extends CrudRepository<Cart, String> {
+public interface ICartRepository extends CrudRepository<Cart, Integer> {
 	
 	
 
