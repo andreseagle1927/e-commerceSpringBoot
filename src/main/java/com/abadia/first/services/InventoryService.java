@@ -91,12 +91,9 @@ public class InventoryService {
         
         List<Inventory> inventoryList = new ArrayList<Inventory>();
         Iterable<Inventory> invetory = invetoryRepository.findAll();
-       
-
-
+      
 
         Iterator<Inventory> iterator = invetory.iterator();
-        
         
 
         while(iterator.hasNext()){
@@ -117,6 +114,42 @@ public class InventoryService {
         
 
         return total;
+
+
+    }
+    
+public List<Inventory> getCartById(Integer idCart) {
+        
+    	Integer total = 0;
+    	
+        
+        List<Inventory> inventoryList = new ArrayList<Inventory>();
+        List<Inventory> listWithProductsOnCart = new ArrayList<Inventory>();
+        Iterable<Inventory> invetory = invetoryRepository.findAll();
+      
+
+        Iterator<Inventory> iterator = invetory.iterator();
+        
+
+        while(iterator.hasNext()){
+        	inventoryList.add(iterator.next());
+        	
+        }
+        
+        for( Inventory product : inventoryList) {
+        	//if the id cart of the product in stock is equal to target
+        	if (product.getCart().getId() == idCart) {
+        		// total will take the price of all product that satisfy the last condition
+        		total = (int) (total + product.getProduct().getPrice());
+        		listWithProductsOnCart.add(product);
+			}
+        }
+        
+      
+        
+        
+
+        return listWithProductsOnCart;
 
 
     }

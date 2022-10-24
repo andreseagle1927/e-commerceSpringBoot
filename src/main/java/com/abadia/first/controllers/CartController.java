@@ -2,7 +2,6 @@ package com.abadia.first.controllers;
 
 import com.abadia.first.entity.Cart;
 import com.abadia.first.entity.Inventory;
-import com.abadia.first.especialsMethods.CartMethods;
 import com.abadia.first.especialsMethods.externalsClasses.HttpUtils;
 import com.abadia.first.repository.IInvetoryRepository;
 import com.abadia.first.services.CartService;
@@ -17,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class CartController {
-    @Autowired
-    CartMethods cartMethods;
+  
     
     @Autowired
     CartService cartService;
@@ -81,6 +82,21 @@ public class CartController {
         // if the product was added to the cart, it will return that cart, else it will return an empty cart
         
         return new ResponseEntity(total, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value="/CartByID", method = RequestMethod.GET)
+    public ResponseEntity<List<Inventory>> geCart(@RequestParam(value = "id") Integer id, HttpServletRequest request){
+    	String ip = HttpUtils.getRequestIP(request);
+    	
+    	List<Inventory> inventoryList = new ArrayList<Inventory>();
+    	
+    	inventoryList = inventoryService.getCartById(id);
+    		
+    	
+    	
+        // if the product was added to the cart, it will return that cart, else it will return an empty cart
+        
+        return new ResponseEntity(inventoryList, HttpStatus.OK);
     }
     
     

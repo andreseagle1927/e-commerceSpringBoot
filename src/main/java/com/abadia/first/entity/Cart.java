@@ -20,24 +20,7 @@ public class Cart {
 	@Column(name = "ip")
 	private String ip;
 	
-	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = false)
-	private List<Inventory> productos;
 	
-	public void addToCart(Inventory inventory) {
-		productos.add(inventory);
-	}
-
-
-
-
-
-	
-
-
-	public void setProductos(List<Inventory> productos) {
-		this.productos = productos;
-	}
-
 
 	public Integer getId() {
 		return id;
