@@ -81,6 +81,45 @@ public class InventoryService {
 
 
     }
+    
+    
+    // THIS FUNCTION IS FOR HELP US TO KNOW HOW MANY PRODUCTS OF "x" NAME THERE ARE IN STOCK
+    public Integer getCartPrice(Integer idCart) {
+        
+    	Integer total = 0;
+    	
+        
+        List<Inventory> inventoryList = new ArrayList<Inventory>();
+        Iterable<Inventory> invetory = invetoryRepository.findAll();
+       
+
+
+
+        Iterator<Inventory> iterator = invetory.iterator();
+        
+        
+
+        while(iterator.hasNext()){
+        	inventoryList.add(iterator.next());
+        	
+        }
+        
+        for( Inventory product : inventoryList) {
+        	//if the id cart of the product in stock is equal to target
+        	if (product.getCart().getId() == idCart) {
+        		// total will take the price of all product that satisfy the last condition
+        		total = (int) (total + product.getProduct().getPrice());
+			}
+        }
+        
+      
+        
+        
+
+        return total;
+
+
+    }
 
     // RETURN AS LIST ALL THE PRODUCTS FROM THE INVENTORY, JUST FOR ADMINISTRATIVE USE
     public List<Inventory> getInvetory(){

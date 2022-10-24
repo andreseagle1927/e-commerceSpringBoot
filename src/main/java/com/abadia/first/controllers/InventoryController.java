@@ -9,6 +9,8 @@ import com.abadia.first.services.InventoryService;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,16 +34,6 @@ public class InventoryController {
     
     
 
-    Integer defaultInventoryID = 1;
-
-    @RequestMapping(value="/getProductStock", method = RequestMethod.GET)
-    public ResponseEntity<Integer>getProductStock(@RequestParam(value = "id") Integer idBaseProduct){
-
-        int productsOnStock = inventoryService.countByIdBase(idBaseProduct);
-    	
-        return new ResponseEntity(productsOnStock, HttpStatus.OK);
-    }
-
     @RequestMapping(value="/getProductInfo", method = RequestMethod.GET)
     public ResponseEntity<Integer>getProductInfo(@RequestParam(value = "id") Integer idBaseProduct){
 
@@ -57,11 +49,24 @@ public class InventoryController {
     }
     
     @RequestMapping(value="/takeProduct", method = RequestMethod.GET)
-    public ResponseEntity<Inventory>takeProductOfInvetoryAndDeleteIt(@RequestParam(value = "id") Integer idBaseProduct){
+    public ResponseEntity<Inventory>takeProductOfInvetory(@RequestParam(value = "id") Integer idBaseProduct){
 
-    	Inventory h= inventoryService.findProductByIdBase(idBaseProduct);
+    	Inventory productExist = inventoryService.findProductByIdBase(idBaseProduct);
     	
-        return new ResponseEntity(h, HttpStatus.OK);
+        return new ResponseEntity(productExist, HttpStatus.OK);
     }
+    
+    @RequestMapping(value="/productsInStockid", method = RequestMethod.GET)
+    public ResponseEntity<Integer> numberOfProductsInStockByID(@RequestParam(value = "id") Integer id, HttpServletRequest request){
+    	Integer numberOfProducts =inventoryService.countByIdBase(id);
+    	
+    		
+    	
+    	
+        // if the product was added to the cart, it will return that cart, else it will return an empty cart
+        
+        return new ResponseEntity(numberOfProducts, HttpStatus.OK);
+    }
+
    
 }
